@@ -1,0 +1,39 @@
+{% extends "pdc/act.html" %}
+{% load sass_tags %}
+{% load static %}
+
+{% block page_title %}Join PDC{% endblock %}
+
+{% block breadcrumbs %}
+  {{ block.super }}
+  <li><a href="{% url 'join' %}">Join</a></li>
+{% endblock %}
+
+{% block page_content %}
+
+  <section>
+    <h2>Requirements to Join</h2>
+    <p>Membership in the Petersburg Democratic Committee is open to any resident of Petersburg who is registered to vote, supports the principles of the Democratic Party, pays the annual dues, and signs and complies with the <a target="_blank" href="{% static 'pdc/files/declaration_form.pdf' %}">Declaration Form</a>.</p>
+  </section>
+
+  <section>
+    <h2>Process to Join</h2>
+
+    <h3>Step 1: Sign Declaration Form</h3>
+    <p>To apply for membership, fill out the <a target="_blank" href="{% static 'pdc/files/declaration_form.pdf' %}">Declaration Form</a> and email it to <a href="mailto:petersburgdemocrats@gmail.com">petersburgdemocrats@gmail.com</a>.</p>
+    <a class="button button-secondary" target="_blank" href="{% static 'pdc/files/declaration_form.pdf' %}">Download Form</a>
+
+    <h3>Step 2: Pay Dues</h3>
+    <p>Dues are $20 per year, and are due on January 1st. You have several options to pay dues:</p>
+    <ol>
+      <li><b>Electronic Payment</b>: To submit your dues electronically, please use the <a href="https://www.zellepay.com" target="_blank">Zelle</a> app.
+        <ol>
+          <li>Search for petersburgdemocrats@gmail.com to find the payee</li>
+          <li>Add your name and "{% now "Y" %} Membership dues" in the memo field.</li>
+        </ol>
+      </li>
+      <li><b>By Check</b>: If you wish you may mail or hand-deliver a check to the Treasurer. Please contact <a href="mailto:petersburgdemocrats@gmail.com">petersburgdemocrats@gmail.com</a> for address and instructions.</li>
+    </ol>
+  </section>
+
+{% endblock %}

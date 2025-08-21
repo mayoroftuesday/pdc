@@ -1,0 +1,60 @@
+{% extends "pdc/info.html" %}
+
+{% block page_title %}About PDC{% endblock %}
+
+{% block breadcrumbs %}
+  {{ block.super }}
+  <li><a href="{% url 'about' %}">About PDC</a></li>
+{% endblock %}
+
+{% block page_content %}
+
+  <section>
+    <h2>Petersburg Democratic Committee</h2>
+    <p>PDC is Petersburg's local branch of the Virginia Democratic Party.</p>
+    <p>The current leadership of the committee is as follows:</p>
+    <ul>
+      <li>Chair - Janell Sinclair</li>
+      <li>Secretary - Joyce Vinson</li>
+      <li>Treasurer - Joyce Proctor</li>
+    </ul>
+    <p>Every two years the committee holds a reorganization meeting to elect new leadership. The next reorganization meeting will be in January of 2024.</p>
+    <p>Committee meetings are on the last Thursday of every month at 6pm and are open to the public.</p>
+    <p>To learn more about PDC and the Virginia Democrats, read the <a target="_blank" href="http://vademocrats.org/wp-content/uploads/2020/12/DPVA-Party-Plan-December-2020-1.pdf">Democratic Party of Virginia Party Plan</a>.</p>
+  </section>
+
+  <section>
+    <h2>Activities of the Committee</h2>
+    <p>Each year PDC engages in the following activities to promote Democratic party candidates and goals:</p>
+    <ul>
+      <li>Nominate Democratic candidates for office</li>
+      <li>Encourage voter registration and access to voting</li>
+      <li>Fundraising for Virginia Democrats</li>
+      <li>Election day booths with candidate information</li>
+      <li>Organize drivers to get people to the polls</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Keep up to Date</h2>
+    <p>Stay up to date with PDC by subscribing to our mailing list, checking our event calendar, or following us on social media.</p>
+    <ul>
+      <li><a href="#mc_embed_signup">Join the mailing list</a> - subscribe at the bottom of the page</li>
+      <li><a href="{% url 'news:index' %}">Recent News</a></li>
+      <li><a href="{% url 'events:index' %}">Upcoming Events</a></li>
+      <li><a target="_blank" href="https://www.facebook.com/petersburgdemocrats">Facebook</a></li>
+      <li><a target="_blank" href="https://twitter.com/PetersburgDems">Twitter</a></li>
+      <li>Email us at <a href="mailto:petersburgdemocrats@gmail.com">petersburgdemocrats@gmail.com</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Join PDC</h2>
+    <p>PDC is dedicated to promoting Democratic candidates and messages in Petersburg and the surrounding areas.
+    <p>We are actively looking for new members to help further our mission. Meetings are held on the last Thursday of every month. Dues are just $20 per year. Click below to find out more about our organization and how you can join and make a difference!</p>
+    <div class="button-row">
+      <a class="button button-primary" href="{% url 'join' %}">Join PDC</a>
+    </div>
+  </section>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -ex
+
+# Check syntax and style
+docker-compose exec web flake8
+
+# Check types
+docker-compose exec web mypy .
+
+# Run tests
+docker-compose exec web ./manage.py test

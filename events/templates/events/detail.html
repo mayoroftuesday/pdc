@@ -1,0 +1,91 @@
+{% extends "events/list.html" %}
+
+{% load sass_tags %}
+
+{% block styles %}
+  {{ block.super }}
+  <link href="{% sass_src 'events/css/detail.scss' %}" rel="stylesheet" type="text/css" />
+  <link href="{% sass_src 'css/form.scss' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block breadcrumbs %}
+  {{ block.super }}
+  <li><a href="{{ occurrence.get_absolute_url }}">{{ event.title }}</a></li>
+{% endblock %}
+
+{% block page_content %}
+
+  <div class="event">
+    <h2>{{ event.title }}</h2>
+    {% if event.category %}
+      <div class="category {{ event.category.color }}">Category: {{ event.category }}</div>
+    {% endif %}
+
+    <div class="event-detail">
+      {{ occurrence.date }}
+      {% if event.is_all_day %}
+        (All Day)
+      {% else %}
+        {{ event.time }}
+      {% endif %}
+    </div>
+
+    {% if event.location %}
+      <div class="event-detail">Location: {{ event.location }}</div>
+    {% endif %}
+
+    <div class="description">{{ event.content|safe }}</div>
+
+    {% if event.include_rsvp and not occurrence.is_past %}
+      <form method="POST">
+        <h3>RSVP</h3>
+        <p>Please let us know if you will be attending:</p>
+        {% if show_thank_you %}
+          <p class="alert">Thank you for RSVPing. We look forward to seeing you!</p>
+        {% else %}
+          {% csrf_token %}
+          {% for field in rsvp_form %}
+            {% if field.is_hidden %}
+              {{ field }}
+            {% else %}
+              <div class="field-container">
+                <div class="label">{{ field.label_tag }}{{ field.errors }}</div>
+                <div class="field">{{ field }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+
+          <input class="button button-primary" type="submit" value="RSVP">
+        {% endif %}
+      </form>
+
+      {% if request.user.is_staff %}
+        <h2>Guest List (Admin only)</h2>
+        <a href="{% url "events:export" id=occurrence.id %}">Export</a>
+        <table border=1 width=100%>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Number</th>
+          </tr>
+          {% for rsvp in occurrence.eventrsvp_set.all %}
+            <tr>
+              <td>{{ rsvp.name }}</td>
+              <td><a href="mailto:{{ rsvp.email }}">{{ rsvp.email }}</a></td>
+              <td>{{ rsvp.phone }}</td>
+              <td>{{ rsvp.number_attending }}</td>
+            </tr>
+          {% endfor %}
+          <tr>
+            <th>TOTAL</th>
+            <td>
+            <td>
+            <td>{{ occurrence.total_attending }}</td>
+        </table>
+      {% endif %}
+
+    {% endif %}
+  </div>
+
+{% endblock %}

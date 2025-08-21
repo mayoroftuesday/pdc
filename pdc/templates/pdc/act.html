@@ -1,0 +1,56 @@
+{% extends "pages/basepage.html" %}
+
+{% block page_title %}Act Now{% endblock %}
+
+{% block breadcrumbs %}
+  {{ block.super }}
+  <li><a href="{% url 'act' %}">Action</a></li>
+{% endblock %}
+
+{% block page_content %}
+
+  <section>
+    <h2>Volunteer</h2>
+    <p>
+      PDC is looking for volunteers to help with canvassing, voter registration
+      drives, and election day support. If you would like to help, please
+      <a href="{% url 'contact' %}">Contact Us</a> and let us know what
+      position you'd like to fill. Click below to find out more about specific
+      volunteer positions that are currently open.
+    </p>
+    <a class="button button-primary" href="{% url 'volunteer' %}">Volunteering</a>
+  </section>
+
+  <section>
+    <h2>Donate</h2>
+    <p>
+      Making a donation is a quick and easy way to make a meaningful
+      contribution. We need funds to help us reach our goals and support the
+      Virginia Democratic Party. Click below to find out more about how we use
+      donated funds, or to make a donation today.
+    </p>
+    <div class="button-row">
+      <a class="button button-secondary" href="{% url 'donate' %}">Donation Info</a>
+      <a class="button button-primary" target="_blank" href="https://secure.actblue.com/donate/pdems">Donate Now!</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Join PDC</h2>
+    <p>
+      PDC is dedicated to promoting Democratic candidates and messages in
+      Petersburg and the surrounding areas.
+    </p>
+    <p>
+      We are actively looking for new members to help further our mission.
+      Meetings are held on the last Thursday of every month. Dues are just $20
+      per year. Click below to find out more about our organization and how you
+      can join and make a difference!
+    </p>
+    <div class="button-row">
+      <a class="button button-secondary" href="{% url 'about' %}">About PDC</a>
+      <a class="button button-primary" href="{% url 'join' %}">Join PDC</a>
+    </div>
+  </section>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+rsync . pdems:/srv/pdc \
+ --exclude=".*" \
+ --exclude="static_root" \
+ --exclude="data" \
+ --exclude="djangoenv" \
+ --delete \
+ --recursive \
+ --verbose
+
+ ssh pdems "systemctl restart gunicorn.socket"

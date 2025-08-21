@@ -1,0 +1,86 @@
+@import 'static/css/base.scss';
+
+
+.category {
+  font-size: 0.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  &.category-blue {
+    color: #55c;
+  }
+  &.category-green {
+    color: #4b4;
+  }
+  &.category-yellow {
+    color: #bb2;
+  }
+  &.category-orange {
+    color: #c96;
+  }
+  &.category-red {
+    color: #c66;
+  }
+  &.category-purple {
+    color: #949;
+  }
+  &.category-gray {
+    color: #999;
+  }
+}
+
+.event-items {
+
+  .eventitem {
+    display: flex;
+    margin-bottom: 20px;
+
+    h3 {
+      line-height: 1.1;
+      margin: 0.2em 0;
+    }
+
+    p {
+      margin: 0.5em 0;
+    }
+  }
+
+  .eventdate {
+    flex-basis: 100px;
+    flex-shrink: 0;
+    text-align: center;
+    margin-right: 10px;
+
+    .weekday {
+      background-color: $light-gray;
+      padding: 3px;
+      border: 2px solid $dark-gray;
+      border-radius: 10px 10px 0 0;
+      border-bottom-style: none;
+    }
+    .day {
+      background-color: $light-gray;
+      border-color: $dark-gray;
+      border-width: 2px;
+      border-style: none solid;
+      font-weight: bold;
+      font-size: 40px;
+    }
+    .month {
+      padding: 3px;
+      background-color: $dark-red;
+      border: 2px solid $dark-gray;
+      border-radius: 0 0 10px 10px;
+      border-top-style: none;
+      color: white;
+      font-weight: bold;
+    }
+  }
+
+  .eventdetails {
+    .time {
+      white-space: nowrap;
+      font-size: smaller;
+    }
+  }
+}

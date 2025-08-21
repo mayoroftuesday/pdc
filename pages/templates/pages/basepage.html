@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load sass_tags %}
+
+{% block styles %}
+  <link href="{% sass_src 'pages/css/page.scss' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+
+  {% if page.is_draft %}
+    <div class="draft">
+      DRAFT: This page is only visible to admins. To make public, change status to Published.
+    </div>
+  {% endif %}
+
+  <div class="page">
+    {% block page_content %}
+      {{ page.content|safe }}
+    {% endblock %}
+  </div>
+
+{% endblock %}

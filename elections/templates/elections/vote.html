@@ -1,0 +1,56 @@
+{% extends "pdc/info.html" %}
+{% load sass_tags %}
+{% load static %}
+
+{% block styles %}
+  {{ block.super }}
+  <link href="{% sass_src 'events/css/list.scss' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block page_title %}How To Vote{% endblock %}
+
+{% block breadcrumbs %}
+  {{ block.super }}
+  <li><a href="{% url 'elections:vote' %}">How to Vote</a></li>
+{% endblock %}
+
+{% block page_content %}
+
+  <section>
+    <h2>Voter Information Portal</h2>
+    <p>The Virginia Department of Elections has an online voter information portal where you can:</p>
+    <ul>
+      <li>Check whether you are registered to vote</li>
+      <li>Register to vote</li>
+      <li>Apply to vote absentee by mail</li>
+      <li>Find your polling place</li>
+    </ul>
+    <a class="button button-primary" href="https://vote.elections.virginia.gov/VoterInformation">VA Voter Information Portal</a>
+  </section>
+
+  <section>
+    <h2>Polling Locations</h2>
+    <ul>
+      <li>Ward 1 - Blandford Academy</li>
+      <li>Ward 2 - Good Shepherd Baptist Church</li>
+      <li>Ward 3 - Petersburg High School</li>
+      <li>Ward 4 - Union Train Station</li>
+      <li>Ward 5 - Tabernacle Baptist Church</li>
+      <li>Ward 6 - Cool Springs Elementary</li>
+      <li>Ward 7 - Pleasants Lane Elementary</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Important Election Dates</h2>
+    <p>Keep an eye on our calendar for upcoming important dates and deadlines related to elections. If you need to register to vote or apply for absentee voting by mail, be sure to do so as soon as possible. Election day is too late!</p>
+    {% include "events/partials/eventlist.html" %}
+    <a class="button button-secondary" href="{% url 'events:index' %}">All Events</a>
+  </section>
+
+  <section>
+    <h2>If You Need Help, Just Ask!</h2>
+    <p>Keeping track of deadlines and filling out forms can be confusing at times. If you need any assistance or have questions about voting, don't hesitate to contact Petersburg Democrats at <a href="mailto:petersburgdemocrats@gmail.com">petersburgdemocrats@gmail.com</a>.
+  </section>
+
+{% endblock %}

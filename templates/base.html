@@ -1,0 +1,104 @@
+{% load sass_tags %}
+{% load meta %}
+{% load static %}
+
+<!doctype html>
+<html lang="en" {% meta_namespaces_schemaorg %}>
+
+  <head {% meta_namespaces %}>
+    <title>Petersburg Democrats</title>
+
+    <!-- mobile view -->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    {% block styles %}
+      <link href="{% sass_src 'css/base.scss' %}" rel="stylesheet" type="text/css" />
+    {% endblock %}
+
+    <!-- metadata -->
+    {% include 'meta/meta.html' %}
+
+    <!-- Google Fonts: Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+
+    {% include 'partials/mailchimp/mailchimp_popup.html' %}
+
+    <script type="text/javascript" src="{% static 'js/navigation.js' %}"></script>
+    {% block scripts %}
+    {% endblock %}
+  </head>
+
+  <body onload="menuSetup();">
+
+    <div id="container">
+
+      <header>
+        <img src="{% static 'images/pdc_logo.png' %}" alt="Petersburg Democratic Committee logo">
+        <nav>
+          <ul class="primary">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a aria-expanded="false" aria-controls="information-menu" href="#" aria-label="Information. Click to toggle submenu.">Information</a>
+              <ul id="information-menu" class="secondary">
+                <li><a href="{% url 'about' %}" aria-label="Information: About PDC">About PDC</a></li>
+                <li><a href="{% url 'news:index' %}" aria-label="Information: Recent News">Recent News</a></li>
+                <li><a href="{% url 'events:index' %}" aria-label="Information: Upcoming Events">Upcoming Events</a></li>
+              </ul>
+            </li>
+            <li><a aria-expanded="false" aria-controls="action-menu" href="#" aria-label="Action. Click to toggle submenu.">Action</a>
+              <ul id="action-menu" class="secondary">
+                <li><a href="{% url 'volunteer' %}" aria-label="Action: Volunteer">Volunteer</a></li>
+                <li><a href="{% url 'donate' %}" aria-label="Action: Donate">Donate</a></li>
+                <li><a href="{% url 'join' %}" aria-label="Action: Join PDC">Join PDC</a></li>
+              </ul>
+            </li>
+            <li><a aria-expanded="false" aria-controls="elections-menu" href="#" aria-label="Elections. Click to toggle submenu.">Elections</a>
+              <ul id="elections-menu" class="secondary">
+                <li><a href="{% url 'elections:index' %}" aria-label="Elections: Upcoming Elections">Upcoming Elections</a></li>
+                <li><a href="{% url 'elections:representatives' %}" aria-label="Elections: Your Representatives">Your Representatives</a></li>
+                <li><a href="{% url 'elections:candidates' %}" aria-label="Elections: Meet the Canddiates">Meet the Candidates</a></li>
+                <li><a href="{% url 'elections:vote' %}" aria-label="Elections: How to Vote">How to Vote</a></li>
+              </ul>
+            </li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="title">
+          <h1>{% block page_title %}Petersburg Democrats{% endblock %}</h1>
+        </div>
+      </header>
+      {% if show_breadcrumbs|default_if_none:True %}
+        <nav class="breadcrumbs">
+          <ul>
+            {% block breadcrumbs %}
+              <li><a href="{% url 'home' %}">Home</a></li>
+            {% endblock %}
+          </ul>
+        </nav>
+      {% endif %}
+
+      <main>
+        {% block content %}{% endblock %}
+      </main>
+
+      <footer>
+        <div class="social">
+          <a target="_blank" href="https://www.facebook.com/petersburgdemocrats"><img src="{% static 'images/social/fb.png' %}" alt="Facebook"></a>
+          <a target="_blank" href="https://twitter.com/PetersburgDems"><img src="{% static 'images/social/twitter.png' %}" alt="Twitter"></a>
+          <a href="mailto:petersburgdemocrats@gmail.com"><img src="{% static 'images/social/email.png' %}" alt="Email"></a>
+          <!-- TODO: Add IG
+          <a target="_blank" href="#"><img src="{% static 'images/social/ig.png' %}" alt="Instagram"></a>
+          -->
+        </div>
+
+        {% include "partials/mailchimp/mailchimp_signup.html" %}
+
+        Copyright&copy; {% now "Y" %} Petersburg Democratic Committee
+      </footer>
+
+    </div>
+
+  </body>
+
+</html>

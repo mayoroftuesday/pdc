@@ -1,0 +1,14 @@
+{% extends "news/list.html" %}
+
+{% block breadcrumbs %}
+  {{ block.super }}
+  <li><a href="{{ page.get_absolute_url }}">{{ page.title }}</a></li>
+{% endblock %}
+
+{% block page_content %}
+  <article>
+    <h2>{{ page.title }}</h2>
+    <p>Published {{ page.published }}</p>
+    <div>{{ page.content|safe }}</div>
+  </article>
+{% endblock %}

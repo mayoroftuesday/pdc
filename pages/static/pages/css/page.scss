@@ -1,0 +1,43 @@
+@import 'static/css/base.scss';
+
+$page-padding: 20px;
+$page-padding-mobile: 10px;
+
+.page {
+  padding: $page-padding-mobile;
+  @media (min-width: $breakpoint-mobile) {
+    padding: $page-padding;
+  }
+
+  section {
+    margin-top: 30px;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  h2 {
+    background: linear-gradient(to bottom, $light-gray, white);
+    padding: $page-padding-mobile;
+    margin: $page-padding-mobile -$page-padding-mobile 0 -$page-padding-mobile;
+    border-radius: 20px 0;
+
+    @media (min-width: $breakpoint-mobile) {
+      padding: $page-padding;
+      margin: $page-padding -$page-padding 0 -$page-padding;
+    }
+
+    & + .subheader {
+      font-weight: bold;
+      margin-top: -$page-padding-mobile;
+      margin-bottom: $page-padding-mobile;
+
+      @media (min-width: $breakpoint-mobile) {
+        margin-top: -$page-padding;
+        margin-bottom: $page-padding;
+      }
+    }
+  }
+
+}

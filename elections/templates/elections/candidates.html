@@ -1,0 +1,49 @@
+{% extends "pdc/info.html" %}
+{% load sass_tags %}
+{% load static %}
+
+{% block styles %}
+  {{ block.super }}
+  <link href="{% sass_src 'elections/css/elections.scss' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block page_title %}Meet the Candidates{% endblock %}
+
+{% block breadcrumbs %}
+  {{ block.super }}
+  <li><a href="{% url 'elections:index' %}">Meet the Candidates</a></li>
+{% endblock %}
+
+{% block page_content %}
+
+  <section>
+    <h2>November 7th Candidates</h2>
+    <p>The following candidates will be running for office in the November 7, 2023 election.</p>
+
+    <div class="politician-list">
+
+      <div class="politician">
+        <img src="{% static 'elections/images/headshots/lashrecse_aird.jpg' %}" alt="Lashrecse Aird">
+        <div class="details">
+          <h3>Lashrecse Aird</h3>
+          <b>Senate of VA - 13th District</b>
+          <p>Lessons learned through the adversity of her childhood informed Lashrecse Aird’s legislative priorities while serving as a member of the Virginia House of Delegates. Over her three terms in the House, Lashrecse Aird earned a reputation as a courageous and indefatigable champion for social, racial, economic and environmental justice issues.</p>
+          <p>Learn more at <a target="_blank" href="https://www.lashrecseaird.com/">lashrecseaird.com</a>.</p>
+          <p>To volunteer, reach out to <a href="mailto:aird@lashrecseaird.com">aird@lashrecseaird.com</a></p>
+        </div>
+      </div>
+
+      <div class="politician">
+          <img src="{% static 'elections/images/headshots/kimberly_pope_adams.jpeg' %}" alt="Kimberly Pope Adams">
+          <div class="details">
+            <h3>Kimberly Pope Adams</h3>
+            <b>House of Delegates - 82nd District</b>
+            <p>Her deep love for the area she grew up in is the cornerstone of why she’s running to serve the new 82nd District. Our District of Petersburg, Dinwiddie, Prince George, and Surry deserves a Delegate to fight for all of us. Kim is a mother whose community has seen hardships that were preventable. She’s ready to be a voice for a District that has long been ignored by Richmond. Kim will stand with farmers, local businesses, and community leaders to make our District thrive.</p>
+            <p>Learn more at <a target="_blank" href="https://kimadamsforva.com/">kimadamsforva.com</a>.</p>
+            <p>To volunteer, reach out to <a href="mailto:kimadamsforva@gmail.com">kimadamsforva@gmail.com</a></p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

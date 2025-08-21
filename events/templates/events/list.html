@@ -1,0 +1,25 @@
+{% extends "pdc/info.html" %}
+{% load sass_tags %}
+
+{% block page_title %}Upcoming Events{% endblock %}
+
+{% block styles %}
+  {{ block.super }}
+  <link href="{% sass_src 'events/css/list.scss' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block breadcrumbs %}
+  {{ block.super }}
+  <li><a href="{% url 'events:index' %}">Upcoming Events</a></li>
+{% endblock %}
+
+{% block page_content %}
+
+  {% include "events/partials/eventlist.html" %}
+
+  {% with events as page %}
+    {% include 'partials/pager.html' %}
+  {% endwith %}
+
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "pdc/act.html" %}
+{% load sass_tags %}
+{% load static %}
+
+{% block page_title %}Donate to PDC{% endblock %}
+
+{% block breadcrumbs %}
+  {{ block.super }}
+  <li><a href="{% url 'donate' %}">Donate</a></li>
+{% endblock %}
+
+{% block page_content %}
+
+  <section>
+    <h2>We Need Your Help!</h2>
+    <p>Petersburg Democratic Committee depends on donations to reach its goals each year. With your help, we can continue to:</p>
+    <ul>
+      <li>Promote voter registration in Petersburg</li>
+      <li>Educate the public about Democratic candidates for state and federal office</li>
+      <li>Provide flyers, signs, and sample ballots at polling places to promote the Democratic Party</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How To Donate</h2>
+
+    <p>We use <a href="https://actblue.com">ActBlue</a> to handle donations. ActBlue is a nonprofit that has helped countless Democratic candidates and organizations raise money and win elections! The button below will take you to PDC's ActBlue account where you can make a one-time or recurring donation.</p>
+
+    <a class="button button-primary" target="_blank" href="https://secure.actblue.com/donate/pdems">Donate</a>
+
+    <p>If you are interested in donating directly via cash or check, please reach out to <a href="mailto:petersburgdemocrats@gmail.com">petersburgdemocrats@gmail.com</a>.</p>
+  </section>
+
+{% endblock %}

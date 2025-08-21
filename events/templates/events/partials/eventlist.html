@@ -1,0 +1,21 @@
+<div class="event-items">
+  {% for occurrence in events %}
+    <div class="eventitem">
+      <div class="eventdate">
+        <div class="weekday">{{ occurrence.date|date:"l" }}</div>
+        <div class="day">{{ occurrence.date|date:"d" }}</div>
+        <div class="month">{{ occurrence.date|date:"M"|upper }}</div>
+      </div>
+      <div class="eventdetails">
+        {% if occurrence.event.category %}
+          <div class="category {{ occurrence.event.category.color }}">{{ occurrence.event.category }}</div>
+        {% endif %}
+        <h3>{% if occurrence.event.is_draft %}<span class="draft">DRAFT</span>{% endif %}{{ occurrence.title }}{% if not occurrence.event.is_all_day %} <span class="time">&commat; {{ occurrence.event.time }}</span>{% endif %}</h3>
+        <p>
+          {{ occurrence.event.summary }}
+          <a href="{{ occurrence.get_absolute_url }}" aria-label="Event details: {{ occurrence.title }}">Details &gt;</a>
+        </p>
+      </div>
+    </div>
+  {% endfor %}
+</div>

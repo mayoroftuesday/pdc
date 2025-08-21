@@ -1,0 +1,43 @@
+{% extends "pdc/info.html" %}
+{% load sass_tags %}
+{% load static %}
+
+{% block styles %}
+  {{ block.super }}
+  <link href="{% sass_src 'elections/css/elections.scss' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block page_title %}Upcoming Elections{% endblock %}
+
+{% block breadcrumbs %}
+  {{ block.super }}
+  <li><a href="{% url 'elections:index' %}">Upcoming Elections</a></li>
+{% endblock %}
+
+{% block page_content %}
+
+  <section id="2023election">
+    <h2>November 7, 2023 General Election</h2>
+    <p>In 2023 the Virgina State Senate and House of Delegates are up for election.</p>
+    <p>For full details and lists of candidates, see the <a href="https://www.elections.virginia.gov/casting-a-ballot/candidate-list/">Virginia Board of Elections</a> website.</p>
+
+    <h3>Positions</h3>
+    <p>The following positions are up for election in Petersburg:</p>
+    <ul>
+      <li>Senate of VA - 13th District</li>
+      <li>House of Delegates - 82nd District</li>
+    </ul>
+    <p>Learn more about the candidates <a href="{% url 'elections:candidates' %}">here</a>.</p>
+
+    <h3>Important Dates</h3>
+    <ul>
+      <li>September 22 - First day of in-person early voting</li>
+      <li>October 16 - Deadline to register to vote</li>
+      <li>October 27 - Deadline to apply for a ballot to be mailed to you</li>
+      <li>November 4 - Last day of in-person early voting</li>
+      <li>November 7 - Primary election</li>
+    </ul>
+
+  </section>
+
+{% endblock %}

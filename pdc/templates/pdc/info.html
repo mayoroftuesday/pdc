@@ -1,0 +1,51 @@
+{% extends "pages/basepage.html" %}
+{% load sass_tags %}
+
+{% block page_title %}Learn More{% endblock %}
+
+{% block styles %}
+  {{ block.super }}
+  <link href="{% sass_src 'pdc/css/info.scss' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block breadcrumbs %}
+  {{ block.super }}
+  <li><a href="{% url 'info' %}">Information</a></li>
+{% endblock %}
+
+{% block page_content %}
+
+  <section>
+    <h2>About PDC</h2>
+    <p>The Petersburg Democratic Committee is dedicated to furthering the goals of the Democratic Party in the City of Petersburg. 
+    <ul>
+      <li><a href="{% url 'about' %}">Read more about PDC</a></li>
+      <li><a href="{% url 'join' %}">Become a member of PDC</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Keep up to Date</h2>
+    <p>Stay up to date with PDC by subscribing to our mailing list, checking our event calendar, or following us on social media.</p>
+    <ul>
+      <li><a href="#mc_embed_signup">Join the mailing list</a> - subscribe at the bottom of the page</li>
+      <li><a href="{% url 'news:index' %}">Recent News</a></li>
+      <li><a href="{% url 'events:index' %}">Upcoming Events</a></li>
+      <li><a target="_blank" href="https://www.facebook.com/petersburgdemocrats">Facebook</a></li>
+      <li><a target="_blank" href="https://twitter.com/PetersburgDems">Twitter</a></li>
+      <li>Email us at <a href="mailto:petersburgdemocrats@gmail.com">petersburgdemocrats@gmail.com</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Election Information</h2>
+    <p>One of the most important things you can do to help the Democratic Party achieve its goals is to go out an vote! And not just in Presidential elections, but all local, state, federal elections and primaries. Click the links below to find out more about voting in our area.</p>
+    <ul>
+      <li><a href="{% url 'elections:index' %}">Upcoming Elections</a></li>
+      <li><a href="{% url 'elections:representatives' %}">Your Current Democratic Representatives</a></li>
+      <li><a href="{% url 'elections:candidates' %}">Meet the Candidates</a></li>
+      <li><a href="{% url 'elections:vote' %}">How to Vote</a></li>
+    </ul>
+  </section>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load sass_tags %}
+
+{% block styles %}
+  <link href="{% sass_src 'pdc/css/home.scss' %}" rel="stylesheet" type="text/css" />
+  <link href="{% sass_src 'events/css/list.scss' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+
+{% block content %}
+
+  {% if announcement.active %}
+    <section class="announcement">
+      <h2>{{ announcement.title }}</h2>
+      <p>{{ announcement.content }}</p>
+      <a class="button button-primary" href="{{ announcement.cta_link }}">{{ announcement.cta_text }}</a>
+    </section>
+  {% endif %}
+
+  <section class="news-and-events">
+
+    {% if top_news %}
+    <section class="news">
+      <h2>Recent News</h2>
+      <div class="news-items">
+        {% for newsitem in top_news %}
+          <div class="newsitem">
+            <h3>{{ newsitem.title }}</h3>
+            <div class="pubdate">{{ newsitem.published }}</div>
+            <p>
+              {{ newsitem.summary }}
+              <a href="{{ newsitem.get_absolute_url }}" aria-label="Read full article: {{ newsitem.title }}">Read More &gt;</a>
+            </p>
+          </div>
+        {% endfor %}
+      </div>
+      <a class="button button-secondary" href="{% url 'news:index' %}">More News</a>
+    </section>
+    {% endif %}
+
+    {% if events %}
+    <section class="events">
+      <h2>Upcoming Events</h2>
+      {% include "events/partials/eventlist.html" %}
+      <a class="button button-secondary" href="{% url 'events:index' %}">More Events</a>
+    </section>
+    {% endif %}
+
+
+  </section>
+
+  <div class="cta-block-container">
+    <section class="cta-block">
+      <h2>Get Informed</h2>
+      <p>Learn about PDC, upcoming elections and events, and our democratic representatives and candidates.</p>
+      <a class="button button-primary" href="{% url 'info' %}" aria-label="Get informed">Learn More</a>
+    </section>
+
+    <section class="cta-block">
+      <h2>Get Involved</h2>
+      <p>Help support Petersburg Democrats by volunteering, making a donation, or joining the PDC.</p>
+      <a class="button button-primary" href="{% url 'act' %}">Act Now</a></h2>
+    </section>
+  </div>
+
+  <section class="join" aria-label="Join the Petersburg Democratic Committee">
+    <h2>Petersburg Democratic Committee</h2>
+    <p>PDC is dedicated to promoting Democratic candidates and messages in Petersburg and the surrounding areas.
+    <p>We are actively looking for new members to help further our mission. Meetings are held on the last Thursday of every month. Dues are just $20 per year. Click below to find out more about our organization and how you can join and make a difference!</p>
+    <a class="button button-secondary" href="{% url 'join' %}">Join PDC</a>
+  </section>
+
+
+{% endblock %}

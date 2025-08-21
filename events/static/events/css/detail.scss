@@ -1,0 +1,15 @@
+@import 'list.scss';
+
+.event {
+
+  .category {
+    position: relative;
+    top: -20px;
+  }
+
+  .event-detail {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+
+}

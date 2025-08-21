@@ -1,0 +1,71 @@
+{% extends "pdc/act.html" %}
+{% load sass_tags %}
+{% load static %}
+
+{% block page_title %}Volunteer with PDC{% endblock %}
+
+{% block breadcrumbs %}
+  {{ block.super }}
+  <li><a href="{% url 'volunteer' %}">Volunteer</a></li>
+{% endblock %}
+
+{% block page_content %}
+
+  <section>
+    <h2>Committee Positions Available</h2>
+    <p>
+      We are looking for several committee members to take on leadership roles
+      within the organization. If one of these positions seems interesting to
+      you, please reach out to <a href="mailto:petersburgdemocrats@gmail.com">petersburgdemocrats@gmail.com</a>
+    </p>
+    <ul>
+      <li>Ward Chairs:
+        <ul>
+          <li>Ward 1</li>
+          <li>Ward 3</li>
+          <li>Ward 6</li>
+          <li>Ward 7</li>
+        </ul>
+      </li>
+      <li>Absentee Voting Committee</li>
+      <li>Election Day Services Committee</li>
+      <li>Get Out The Vote Committee</li>
+      <li>Voter Registration/Eduction Committee</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Volunteer with Candidate Campaigns</h2>
+    <p>
+      Our <a href="{% url 'elections:candidates' %}">Democratic candidates</a> need your help to win in November!
+      Email them to find out how you can help:
+    </p>
+    <ul>
+      <li>Lashrecse Aird: <a href="mailto:aird@lashrecseaird.com">aird@lashrecseaird.com</a></li>
+      <li>Kimberly Pope Adams: <a href="mailto:kimadamsforva@gmail.com">kimadamsforva@gmail.com</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Election Day Positions Available</h2>
+    <p>
+      If you want to apply for one of the volunteer positions below, please
+      email <a href="mailto:petersburgdemocrats@gmail.com">petersburgdemocrats@gmail.com</a>
+      or fill out our <a href="{% url 'contact' %}">Contact</a> form.
+    </p>
+
+    <h3>Election Day Support Services Committee</h3>
+    <p>
+      Volunteers are needed to help set up tents and tables, and deliver food
+      and materials to poll workers.
+    </p>
+
+    <h3>Election Day Ward Chair Assistants</h3>
+    <p>
+      Volunteers will work in shifts at the polls to assist ward chairpersons
+      in handing out literature to Democratic voters.
+    </p>
+
+  </section>
+
+{% endblock %}

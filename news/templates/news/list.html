@@ -1,0 +1,24 @@
+{% extends "pdc/info.html" %}
+
+{% block page_title %}PDC News{% endblock %}
+
+{% block breadcrumbs %}
+  {{ block.super }}
+  <li><a href="{% url 'news:index' %}">Recent News</a></li>
+{% endblock %}
+
+{% block page_content %}
+
+  {% for newsitem in news %}
+    <section class="newsitem">
+      <h2>{% if newsitem.is_draft %}<span class="draft">DRAFT</span>{% endif %}{{ newsitem.title }}</h2>
+      <p>{{ newsitem.summary }}</p>
+      <a href="{{ newsitem.get_absolute_url }}" aria-label="Read full article: {{ newsitem.title }}">Read More</a>
+    </section>
+  {% endfor %}
+
+  {% with news as page %}
+    {% include 'partials/pager.html' %}
+  {% endwith %}
+
+{% endblock %}

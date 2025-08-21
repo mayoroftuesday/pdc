@@ -1,0 +1,155 @@
+{% extends "pdc/info.html" %}
+{% load sass_tags %}
+{% load static %}
+
+{% block page_title %}Your Democratic Representatives{% endblock %}
+
+{% block breadcrumbs %}
+  {{ block.super }}
+  <li><a href="{% url 'elections:representatives' %}">Your Democratic Representatives</a></li>
+{% endblock %}
+
+{% block styles %}
+  {{ block.super }}
+  <link href="{% sass_src 'elections/css/elections.scss' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block page_content %}
+
+  <section>
+    <h2>Local</h2>
+    <p>Democrats currently hold four constitutional offices in the city of Petersburg.</p>
+
+    <div class="politician-list">
+
+      <div class="politician">
+        <img src="{% static 'elections/images/headshots/brittany_flowers.jpeg' %}" alt="Commissioner of Revenue Brittany Flowers">
+        <div class="details">
+          <h3>Brittany Flowers</h3>
+          <p>Petersburg Commissioner of Revenue</p>
+          <a href="{% url 'elections:brittany-flowers' %}" title="Brittany Flowers bio">Read their bio</a>
+        </div>
+      </div>
+
+      <div class="politician">
+        <img src="{% static 'elections/images/headshots/tiffany_buckner.jpeg' %}" alt="Commonwealth's Attorney Tiffany Buckner">
+        <div class="details">
+          <h3>Tiffany Buckner</h3>
+          <p>Petersburg Commonwealth's Attorney</p>
+          <a href="{% url 'elections:tiffany-buckner' %}" title="Tiffany Buckner bio">Read their bio</a>
+        </div>
+      </div>
+
+      <div class="politician">
+        <img src="{% static 'elections/images/headshots/vanessa_crawford.jpeg' %}" alt="Sheriff Vanessa Crawford">
+        <div class="details">
+          <h3>Vanessa Crawford</h3>
+          <p>Petersburg Sheriff</p>
+          <a href="{% url 'elections:vanessa-crawford' %}" title="Vanessa Crawford bio">Read their bio</a>
+        </div>
+      </div>
+
+      <div class="politician">
+        <img src="{% static 'elections/images/headshots/paul_mullin.jpeg' %}" alt="Treasurer Paul Mullin">
+        <div class="details">
+          <h3>Paul Mullin</h3>
+          <p>Petersburg Treasurer</p>
+          <a href="{% url 'elections:paul-mullin' %}" title="Paul Mullin bio">Read their bio</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>State</h2>
+    <p>To search for your state representatives by address, check <a href="https://whosmy.virginiageneralassembly.gov/" target="_blank">Who's My Legislator?</a> The list below represents those in and around Petersburg, VA.</p>
+    <p>At the state level, Democrats currently hold the Virginia State Senate seat for District 16, which includes Petersburg, Fort Lee, Hopewell, and parts of Richmond.</p>
+
+    <div class="politician-list">
+      <div class="politician">
+        <img src="{% static 'elections/images/headshots/morrissey.jpeg' %}" alt="State Senator Joe Morrissey">
+        <div class="details">
+          <h3>Joe Morrissey</h3>
+          <p>VA State Senator (District 16)</p>
+          <a target="_blank" href="https://www.senatorjoemorrissey.com/" title="Joe Morrissey's Website">www.senatorjoemorrissey.com</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Democrats are eargerly campaigning to take seats in the Virginia House of Delegates. Repbulicans currently hold the seats for:</p>
+    <ul>
+      <li>District 63 - Petersburg &amp; Dinwiddie</li>
+      <li>District 64 - Fort Lee &amp; Prince George</li>
+      <li>District 66 - Colonial Heights &amp; Chesterfield</li>
+      <li>District 62 - Hopewell &amp; Chester</li>
+    </ul>
+
+    <div class="notice">
+      <h3 class="notice-title">Note on Redistricting:</h3>
+      <div class="notice-message">
+        <p>Many districts are changing in 2023 and 2024.</p>
+        <ul>
+          <li>Petersburg will change from State Senate District 16 to District 13, which will include Petersburg, Hopewell, Dinwiddie, Prince George, and eastern Richmond.</p>
+          <li>Petersburg will change from State House District 63 to District 82, which will include Petersburg, Dindiddie, and Prince George.</li>
+        </ul>
+        <p>To see the new borders, check <a href="https://whosmy.virginiageneralassembly.gov/" target="_blank">Who's My Legislator?</a>.</p>
+      </div>
+    </div>
+
+    </ul>
+    </p>
+
+  </section>
+
+  <section>
+    <h2>Federal</h2>
+    <p>At the federal level, Democrats currently hold the presidency, both Virginia senate seats, and the congressional seat for District 4 which encompasses Petersburg, Richmond, and much of sourthern Virginia.</p>
+
+    <div class="politician-list">
+      <div class="politician">
+        <img src="{% static 'elections/images/headshots/jennifer_mcclellan.jpeg' %}" alt="Congresswoman Jennifer McClellan">
+        <div class="details">
+          <h3>Jennifer McClellan</h3>
+          <p>Congresswoman, District 4</p>
+          <a target="_blank" href="https://jennifermcclellan.com/" title="Congresswoman Jennifer McClallan's Website">jennifermcclellan.com</a>
+        </div>
+      </div>
+      <div class="politician">
+        <img src="{% static 'elections/images/headshots/kaine.jpeg' %}" alt="Senator Tim Kaine">
+        <div class="details">
+          <h3>Tim Kaine</h3>
+          <p>Senator (VA)</p>
+          <a target="_blank" href="https://www.kaine.senate.gov/" title="Tim Kaine's Website">www.kaine.senate.gov</a>
+        </div>
+      </div>
+      <div class="politician">
+        <img src="{% static 'elections/images/headshots/warner.jpeg' %}" alt="Senator Mark Warner">
+        <div class="details">
+          <h3>Mark Warner</h3>
+          <p>Senator (VA)</p>
+          <a target="_blank" href="https://www.warner.senate.gov/public/">www.warner.senate.gov</a>
+        </div>
+      </div>
+      <div class="politician">
+        <img src="{% static 'elections/images/headshots/biden.jpeg' %}" alt="President Joe Biden">
+        <div class="details">
+          <h3>Joe Biden</h3>
+          <p>President</p>
+          <a target="_blank" href="https://www.whitehouse.gov/administration/president-biden/" title="Joe Biden's Website">www.whitehouse.gov/administration/president-biden</a>
+        </div>
+      </div>
+      <div class="politician">
+        <img src="{% static 'elections/images/headshots/harris.jpeg' %}" alt="Vice-President Kamala Harris">
+        <div class="details">
+          <h3>Kamala Harris</h3>
+          <p>Vice-President</p>
+          <a target="_blank" href="https://www.whitehouse.gov/administration/vice-president-harris/" title="Kamala Harris' Website">www.whitehouse.gov/administration/vice-president-harris</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+{% endblock %}

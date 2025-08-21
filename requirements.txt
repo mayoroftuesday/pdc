@@ -1,0 +1,36 @@
+# Django core
+Django>=3.0,<4.0
+psycopg2-binary
+
+# production web server
+gunicorn
+
+# dotenv
+django-dotenv
+
+# singleton models
+django-solo
+
+# media manager
+django-cabinet
+
+# django sass processor
+django-compressor
+django-sass-processor
+libsass
+
+# django ckeditor for rich text editing
+django-ckeditor
+
+# for calendar functions
+python-dateutil
+
+# opengraph and other meta data
+django-meta
+
+# needed for google recaptcha
+django-recaptcha
+
+# dev packages
+flake8
+mypy

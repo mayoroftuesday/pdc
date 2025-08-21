@@ -1,0 +1,39 @@
+# Redirect non-secure traffic to HTTPS on root domain
+server {
+  listen 80;
+  server_name petersburgdemocrats.org www.petersburgdemocrats.org 157.230.232.171;
+  return 301 https://petersburgdemocrats.org$request_uri;
+}
+
+# Redirect secure traffic to root domain
+server {
+  listen 443 ssl;
+  ssl_certificate /root/.ssl/petersburgdemocrats_org_chain.crt;
+  ssl_certificate_key /root/.ssl/petersburgdemocrats_org.key;
+  server_name www.petersburgdemocrats.org 157.230.232.171;
+  return 301 https://petersburgdemocrats.org$request_uri;
+}
+
+# Serve django project
+server {
+  listen 443 ssl;
+  ssl_certificate /root/.ssl/petersburgdemocrats_org_chain.crt;
+  ssl_certificate_key /root/.ssl/petersburgdemocrats_org.key;
+
+  server_name petersburgdemocrats.org;
+
+  location /static/ {
+    autoindex off;
+    alias /var/www/static/;
+  }
+
+  location /media/ {
+    autoindex off;
+    alias /var/www/media/;
+  }
+
+  location / {
+    include proxy_params;
+    proxy_pass http://unix:/run/gunicorn.sock;
+  }
+}

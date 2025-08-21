@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load sass_tags %}
+
+{% block page_title %}Contact PDC{% endblock %}
+
+{% block breadcrumbs %}
+  {{ block.super }}
+  <li><a href="{% url 'about' %}">Contact</a></li>
+{% endblock %}
+
+{% block styles %}
+  {{ block.super }}
+  <link href="{% sass_src 'css/form.scss' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+
+  <p>
+    If you have questions or comments for the Petersburg Democratic Committee,
+    please fill out the form below or email us at
+    <a href="mailto:petersburgdemocrats@gmail.com">petersburgdemocrats@gmail.com</a>
+  </p>
+
+  {% if show_thank_you %}
+    <p class="alert">Thank you for contacting PDC. We will be in touch soon.</p>
+  {% endif %}
+
+  <form method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="field-container">
+        <div class="label">{{ field.label_tag }}{{ field.errors }}</div>
+        <div class="field">{{ field }}</div>
+      </div>
+    {% endfor %}
+    <input class="button button-primary" type="submit">
+  </form>
+
+
+{% endblock %}

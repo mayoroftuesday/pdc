@@ -1,0 +1,42 @@
+@import 'static/css/base.scss';
+
+main form {
+  background-color: $light-gray;
+  border-radius: 16px;
+  border: 2px solid black;
+  margin-bottom: 20px;
+  padding: 10px;
+
+  .field-container {
+    padding-bottom: 10px;
+  }
+
+  @media (min-width: $breakpoint-mobile) {
+    max-width: 80%;
+    margin: 0 auto 20px auto;
+
+    .field-container {
+      display: flex;
+
+      & > div {
+        padding: 5px;
+      }
+
+      .label {
+        width: 200px;
+        text-align: right;
+      }
+
+      .field {
+        flex-grow: 1;
+      }
+
+      textarea {
+        width: 100%;
+      }
+    }
+  }
+
+
+
+}

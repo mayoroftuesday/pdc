@@ -1,0 +1,13 @@
+{% extends "pages/basepage.html" %}
+{% load sass_tags %}
+
+{% block page_title %}{{ page.title }}{% endblock %}
+
+{% block breadcrumbs %}
+  {{ block.super }}
+  <li><a href="{{ page.get_absolute_url }}">{{ page.title }}</a></li>
+{% endblock %}
+
+{% block page_content %}
+  {{ page.content|safe }}
+{% endblock %}
