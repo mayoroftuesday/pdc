@@ -1,4 +1,4 @@
-# Petersburg Democratic Committee Website
+# PDC Website
 
 Author: Michael Herring <mherring@gmail.com>
 
